@@ -1,0 +1,14 @@
+[
+    {
+        "relations":[
+            "delegrate_permission/common.handle_all_urls"
+        ],
+        "target":{
+            "namespace": "android_app",
+            "package_name": "com.hundaldental.hundalstore",
+            "sha256_cart_fingerprints":[
+                "D7:E1:AF:E9:66:54:52:1A:A4:2E:38:9B:F0:75:D7:48:2A:28:B8:91:89:3D:0A:5E:0B:87:04:93:2C:BE:05:D4"
+            ]
+        }
+    }
+]
