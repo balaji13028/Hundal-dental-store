@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hundalstore/Home_page.dart';
-import 'package:hundalstore/no_internet_page.dart';
-import 'package:hundalstore/splash_screen.dart';
 import 'package:hundalstore/unable_load.dart';
 
 void main() {
@@ -33,9 +31,14 @@ final routemaster = GoRouter(
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // final AppLinksDeepLink _appLinksDeepLink =
+  //     AppLinksDeepLink.instance; // Initialize AppLinksDeepLink instance
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // _appLinksDeepLink
+    //     .initDeepLinks(); // Initialize deep links when the app starts
     return MaterialApp.router(
       title: 'Hundal Dental',
       debugShowCheckedModeBanner: false,
