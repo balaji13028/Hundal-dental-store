@@ -58,12 +58,8 @@ class _WebViewPageState extends State<WebViewPage> {
         },
         onWebResourceError: (WebResourceError error) {
           log('web error ${error.description}');
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => UnableToLoad(
-                        controller: widget.controller,
-                      )));
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const UnableToLoad()));
         },
         onNavigationRequest: (NavigationRequest request) async {
           if (request.url.startsWith('tel:') ||
@@ -96,12 +92,8 @@ class _WebViewPageState extends State<WebViewPage> {
         loadingPercentage = 100;
       });
     } catch (e) {
-      await Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) => UnableToLoad(
-                    controller: widget.controller,
-                  )));
+      await Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const UnableToLoad()));
       print('Could not launch $url');
     } finally {
       setState(() {

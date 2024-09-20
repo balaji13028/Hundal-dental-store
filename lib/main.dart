@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hundalstore/Home_page.dart';
+import 'package:hundalstore/no_internet_page.dart';
+import 'package:hundalstore/splash_screen.dart';
+import 'package:hundalstore/unable_load.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -12,6 +15,20 @@ void main() {
   ));
   runApp(const MyApp());
 }
+
+final routemaster = GoRouter(
+  initialLocation: '/',
+  routes: <RouteBase>[
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: '/unableToLoad',
+      builder: (context, state) => const UnableToLoad(),
+    ),
+  ],
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -26,14 +43,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      routerConfig: GoRouter(
-        routes: [
-          GoRoute(
-            path: '/',
-            builder: (context, state) => const HomePage(),
-          ),
-        ],
-      ),
+      routerConfig: routemaster,
       // home: const HomePage(),
     );
   }

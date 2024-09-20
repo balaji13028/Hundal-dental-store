@@ -12,14 +12,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String url = 'https://www.hundaldental.com/';
+  String url = 'https://hundaldental.com';
   late WebViewController _webViewController;
-  bool _isConnected = false;
+  bool _isConnected = true;
 
   @override
   void initState() {
-    initailizeWebView();
     _checkConnectivity();
+    initailizeWebView();
     super.initState();
   }
 
