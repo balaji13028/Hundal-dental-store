@@ -1,13 +1,25 @@
 [
     {
-        "relations":[
-            "delegrate_permission/common.handle_all_urls"
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
         ],
-        "target":{
+        "target": {
             "namespace": "android_app",
             "package_name": "com.hundaldental.hundalstore",
-            "sha256_cart_fingerprints":[
-                "D7:E1:AF:E9:66:54:52:1A:A4:2E:38:9B:F0:75:D7:48:2A:28:B8:91:89:3D:0A:5E:0B:87:04:93:2C:BE:05:D4"
+            "sha256_cert_fingerprints": [
+                "B7:4F:8E:A8:01:E6:EF:DE:BC:7A:8F:10:B0:08:91:D7:02:7B:15:42:C4:6D:FE:95:11:A4:B6:1C:92:09:B4:9F"
+            ]
+        }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.hundaldental.hundalstore",
+            "sha256_cert_fingerprints": [
+                "C7:4B:39:9F:58:3A:E7:29:6E:0E:1F:F6:41:8B:1A:49:DD:08:84:A2:AE:50:66:49:B0:2C:A3:DE:CA:6A:AD:E6"
             ]
         }
     }
