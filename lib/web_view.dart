@@ -34,12 +34,9 @@ class _WebViewPageState extends State<WebViewPage> {
             _isLoading = true;
             loadingPercentage = progress;
           });
-          print(progress);
         },
         onUrlChange: (url) {
-          log('url chnaged ${url.url}'); // setState(() {
-          //   _isLoading = false;
-          // });
+          log('url chnaged ${url.url}');
         },
         onPageStarted: (String url) {
           setState(() {
@@ -86,7 +83,12 @@ class _WebViewPageState extends State<WebViewPage> {
 
   Future<void> _handleUrl(String url) async {
     try {
-      await launchUrl(Uri.parse(url));
+      await launchUrl(Uri.parse(url)).then((v) {
+        setState(() {
+          _isLoading = false;
+          loadingPercentage = 100;
+        });
+      });
       setState(() {
         _isLoading = false;
         loadingPercentage = 100;
@@ -94,7 +96,10 @@ class _WebViewPageState extends State<WebViewPage> {
     } catch (e) {
       await Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => const UnableToLoad()));
-      print('Could not launch $url');
+      setState(() {
+        _isLoading = false;
+        loadingPercentage = 100;
+      });
     } finally {
       setState(() {
         _isLoading = false;
@@ -115,27 +120,27 @@ class _WebViewPageState extends State<WebViewPage> {
     return Stack(
       children: [
         WebViewWidget(controller: widget.controller),
-        if (loadingPercentage < 100)
-          Center(
-            child: OverlayLoaderWithAppIcon(
-              circularProgressColor: const Color(0xffffd333),
-              isLoading: _isLoading,
-              overlayOpacity: 0.65,
-              appIconSize: 100,
-              overlayBackgroundColor: Colors.black45,
-              appIcon: Image.asset('assets/hundal_logo.png'),
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // const Center(child: CircularProgressIndicator()),
-                  // Text(
-                  //   'Loading $loadingPercentage...',
-                  //   style: const TextStyle(fontSize: 20),
-                  // ),
-                ],
-              ),
+        // if (loadingPercentage < 100)
+        Center(
+          child: OverlayLoaderWithAppIcon(
+            circularProgressColor: const Color(0xffffd333),
+            isLoading: _isLoading,
+            overlayOpacity: 0.65,
+            appIconSize: 100,
+            overlayBackgroundColor: Colors.black45,
+            appIcon: Image.asset('assets/hundal_logo.png'),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // const Center(child: CircularProgressIndicator()),
+                // Text(
+                //   'Loading $loadingPercentage...',
+                //   style: const TextStyle(fontSize: 20),
+                // ),
+              ],
             ),
           ),
+        ),
       ],
     );
   }

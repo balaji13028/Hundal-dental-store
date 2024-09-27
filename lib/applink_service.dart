@@ -17,15 +17,16 @@ class AppLinksDeepLink {
     // Check initial link if app was in cold state (terminated)
     final appLink = await _appLinks.getInitialLink();
     if (appLink != null) {
-      var uri = Uri.parse(appLink.toString());
-      print(' here you can redirect from url as per your need ');
+      Uri.parse(appLink.toString());
+      // print(' here you can redirect from url as per your need $uri');
     }
 
     // Handle link when app is in warm state (front or background)
     _linkSubscription = _appLinks.uriLinkStream.listen(
       (uriValue) {
-        print(' you will listen any url updates ');
-        print(' here you can redirect from url as per your need ');
+        // log(uriValue.toString());
+        // print(' you will listen any url updates ');
+        // print(' here you can redirect from url as per your need ');
       },
       onError: (err) {
         debugPrint('====>>> error : $err');

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hundalstore/Home_page.dart';
+import 'package:hundalstore/applink_service.dart';
 import 'package:hundalstore/unable_load.dart';
 
 void main() {
@@ -11,7 +12,7 @@ void main() {
     systemNavigationBarColor: Colors.black, // navigation bar color
     statusBarColor: Color(0xffffd333), // status bar color
   ));
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 final routemaster = GoRouter(
@@ -29,16 +30,16 @@ final routemaster = GoRouter(
 );
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
-  // final AppLinksDeepLink _appLinksDeepLink =
-  //     AppLinksDeepLink.instance; // Initialize AppLinksDeepLink instance
+  final AppLinksDeepLink _appLinksDeepLink =
+      AppLinksDeepLink.instance; // Initialize AppLinksDeepLink instance
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // _appLinksDeepLink
-    //     .initDeepLinks(); // Initialize deep links when the app starts
+    _appLinksDeepLink
+        .initDeepLinks(); // Initialize deep links when the app starts
     return MaterialApp.router(
       title: 'Hundal Dental',
       debugShowCheckedModeBanner: false,
@@ -47,7 +48,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routerConfig: routemaster,
-      // home: const HomePage(),
     );
   }
 }

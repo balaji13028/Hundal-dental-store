@@ -30,24 +30,21 @@
             <!-- Deep linkin the website url when i search this url on browser, this intent navigateing to open the app-->
             <meta-data android:name="flutter_deeplinking_enabled" android:value="true" />
             <!-- <intent-filter android:autoVerify="true" android.label="httpDeepLink"> -->
-            <intent-filter>
+            <!-- <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:host="hundaldental.com"/>
-                <data android:scheme="https"/>
-            <!-- <data android:scheme="https" android:host="www.yourwebsite.com" android:pathPrefix="/specificpath" /> -->
-            <!-- You can add more <data> tags for other paths or domains -->
-            </intent-filter>
-            <intent-filter>
-            <!-- <intent-filter android:autoVerify="true"> -->
+                <data android:scheme="https" android:host="hundaldental.com"/>
+    
+            <data android:scheme="https" android:host="www.yourwebsite.com" android:pathPrefix="/specificpath" /> -->
+            <!--</intent-filter> -->
+            <!-- <intent-filter> -->
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:host="www.hundaldental.com"/>
-                <data android:scheme="https"/>
-            <!-- <data android:scheme="https" android:host="www.yourwebsite.com" android:pathPrefix="/specificpath" /> -->
-            <!-- You can add more <data> tags for other paths or domains -->
+                <data android:scheme="https" android:host="www.hundaldental.com"/>
+                <data android:scheme="https" android:host="hundaldental.com"/>
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
@@ -56,11 +53,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
-    <!-- Required to query activities that can process text, see:
-         https://developer.android.com/training/package-visibility and
-         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
-
-         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
